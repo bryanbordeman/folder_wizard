@@ -125,7 +125,13 @@ class WizardOpportunity:
         self.project_name_frame.pack(fill=BOTH, anchor=W, padx=10, pady=10)
         self.project_name_label = Label(self.project_name_frame, text="Project Name       ").pack(side=LEFT)
         self.project_name_var = StringVar()
-        self.project_name_entry = Entry(self.project_name_frame, width=70, textvariable=self.project_name_var).pack(side=LEFT)
+        vcmde = self.project_name_frame.register(self.validate_entry)
+
+
+        self.project_name_entry = Entry(self.project_name_frame, width=70,
+                                        textvariable=self.project_name_var, validate="key", validatecommand=(vcmde, '%P'))
+
+        self.project_name_entry.pack(side=LEFT)
 
         # project category input (dynamic optionmenu)------------
         self.dict = category
@@ -241,6 +247,21 @@ class WizardOpportunity:
 
         try:
             self.entered_number = int(new_text)
+            return True
+        except ValueError:
+            return False
+
+        # --------------------------------------------------------------
+        # limit char. on entry to max 27
+
+    def validate_entry(self, new_text):
+        '''validate max number of characters in entry field'''
+        if len(new_text) > 27:  # the field is being cleared
+            self.entered_text = ''
+            return False
+
+        try:
+            self.entered_text = str(new_text)
             return True
         except ValueError:
             return False
@@ -369,7 +390,12 @@ class WizardProject:
         self.project_name_frame.pack(fill=BOTH, anchor=W, padx=10, pady=10)
         self.project_name_label = Label(self.project_name_frame, text="Project Name       ").pack(side=LEFT)
         self.project_name_var = StringVar()
-        self.project_name_entry = Entry(self.project_name_frame, width=71, textvariable=self.project_name_var).pack(side=LEFT)
+        vcmde = self.project_name_frame.register(self.validate_entry)
+
+        self.project_name_entry = Entry(self.project_name_frame, width=70,
+                                        textvariable=self.project_name_var, validate="key", validatecommand=(vcmde, '%P'))
+
+        self.project_name_entry.pack(side=LEFT)
 
         # project category input (dynamic optionmenu)------------
         self.dict = category
@@ -517,6 +543,22 @@ class WizardProject:
             return True
         except ValueError:
             return False
+
+       # --------------------------------------------------------------
+        # limit char. on entry to max 27
+
+    def validate_entry(self, new_text):
+        '''validate max number of characters in entry field'''
+        if len(new_text) > 27:  # the field is being cleared
+            self.entered_text = ''
+            return False
+
+        try:
+            self.entered_text = str(new_text)
+            return True
+        except ValueError:
+            return False
+         # --------------------------------------------------------------
 
     def browse(self):
         ''' select opportunity to import into project'''
