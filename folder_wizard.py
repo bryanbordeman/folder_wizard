@@ -29,20 +29,20 @@ opportunity_dir = r"C:\Users\Bryan\Google Drive\Programming\Python\folder_wizard
 
 
 def main():
-    pass
+#     pass
 # below is for testing only
-#     quote_data = 'opportunity.pkl'
-#     quote_obj = {}  # if quote_data does not exist
-#     if os.path.exists(quote_data):
-#         with open(quote_data, 'rb') as rfp:
-#             quote_obj = pickle.load(rfp)
-#     print(quote_obj)
+    quote_data = 'opportunity.pkl'
+    quote_obj = {}  # if quote_data does not exist
+    if os.path.exists(quote_data):
+        with open(quote_data, 'rb') as rfp:
+            quote_obj = pickle.load(rfp)
+    print(quote_obj)
 
 
 class Opportunity(object):
     def __init__(self, project_name, project_category, project_type, type_code, project_zip, customer_list, bid_due, manager):
         self.quote_number = get_next_quote_num()
-        self.project_name = project_name[:27]
+        self.project_name = project_name
         self.project_category = project_category
         self.project_type = project_type
         self.type_code = type_code
@@ -154,7 +154,7 @@ class Opportunity(object):
 class Project(object):
     def __init__(self, project_name, project_category, project_type, type_code, project_zip, customer, quote, terms, tax, billing, labor_code, order_type, price):
         self.project_number = get_next_project_num()
-        self.project_name = project_name[:27]
+        self.project_name = project_name
         self.project_category = project_category
         self.project_type = project_type
         self.type_code = type_code
