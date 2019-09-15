@@ -259,14 +259,11 @@ class WizardOpportunity:
     def validate_entry(self, new_text):
         '''validate max number of characters in entry field'''
         if len(new_text) > 27:  # the field is being cleared
-            self.entered_text = ''
             return False
 
-        try:
-            self.entered_text = str(new_text)
-            return True
-        except ValueError:
-            return False
+        self.entered_text = str(new_text)
+        return True
+
         # --------------------------------------------------------------
 
     def add(self):
@@ -554,14 +551,11 @@ class WizardProject:
     def validate_entry(self, new_text):
         '''validate max number of characters in entry field'''
         if len(new_text) > 27:  # the field is being cleared
-            self.entered_text = ''
             return False
 
-        try:
-            self.entered_text = str(new_text)
-            return True
-        except ValueError:
-            return False
+        self.entered_text = str(new_text)
+        return True
+
          # --------------------------------------------------------------
 
     def browse(self):
@@ -571,6 +565,7 @@ class WizardProject:
         self.opportunity = (str(dir.get()).split('/')[-1])[:7]  # take end of directory
 
         # Unpack pickle data -----------------------------------------
+        # quote_data = r'T:\xxfolder_wizard\opportunity.pkl'
         quote_data = 'opportunity.pkl'
         if os.path.exists(quote_data):
             with open(quote_data, 'rb') as rfp:
