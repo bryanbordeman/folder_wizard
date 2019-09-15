@@ -244,6 +244,8 @@ class WizardOpportunity:
         if not new_text:  # the field is being cleared
             self.entered_number = 0
             return True
+        if len(new_text) > 5: #limit char. to 5 max
+            return False
 
         try:
             self.entered_number = int(new_text)
@@ -537,6 +539,8 @@ class WizardProject:
         if not new_text:  # the field is being cleared
             self.entered_number = 0
             return True
+        if len(new_text) > 5:  # limit char. to 5 max
+            return False
 
         try:
             self.entered_number = float(new_text)
@@ -809,7 +813,7 @@ if __name__ == "__main__":
 
 
 # notes:
-# need to limit characters on name entry to max 25
-# need to limit characters on zip entry to max 5
+# need to limit characters on name entry to max 27 *** completed 09/15/19 ***
+# need to limit characters on zip entry to max 5 *** completed 09/15/19 ***
 # Need to make previsions for door service number on projects.
 # need to add pack_forget for customer_button
