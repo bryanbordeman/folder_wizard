@@ -202,6 +202,7 @@ class Project(object):
         self.createFolder(f'{project_dir}/{current_year}/{project}/Purchasing')
         self.createFolder(f'{project_dir}/{current_year}/{project}/Material_Specs')
         self.createFolder(f'{project_dir}/{current_year}/{project}/contracts')
+        self.createFolder(f'{project_dir}/{current_year}/{project}/quotes')
         self.createFolder(f'{project_dir}/{current_year}/{project}/contracts/change_orders')
         self.createFolder(f'{project_dir}/{current_year}/{project}/contracts/closeout_documents')
         self.createFolder(f'{project_dir}/{current_year}/{project}/contracts/AIA_docs_for_pay_apps')
