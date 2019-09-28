@@ -2,7 +2,7 @@
 Title:  quote_codes.py
 Author:  Bryan Bordeman
 Start Date:  062219
-Updated:  071019
+Updated:  092819
 Version:  support script
 
 ;=========================================='''
@@ -32,16 +32,19 @@ category = {'MRI':
              ['Hitachi', 'MRI-HIT'],
              ['Canon', 'MRI-CAN'],
              ['Hallmarq', 'MRI-HLM'],
-             ['Components', 'MRI-CMP'],
+             ['Changeout', 'MRI-CHG'],
              ['Cryo Vent', 'MRI-CRY'],
              ['FerrAlert', 'MRI-KOP'],
+             ['Door Supply', 'MRI-RFD'],
+             ['Components', 'MRI-CMP'],
              ['Other', 'MRI-OTH']],
             'Low Energy Radiation Shielding':
             [['CT Suite', 'LER-CTS'],
              ['X-Ray Suite', 'LER-XRA'],
+             ['PET Suite', 'LER-PET'],
              ['IR Suite', 'LER-IRS'],
              ['OR Suite', 'LER-ORS'],
-             ['PET Suite', 'LER-PET'],
+             ['Cath Lab', 'LER-LAB'],
              ['Modular Partition', 'LER-MOD'],
              ['All-Shield', 'LER-ALL'],
              ['Artemis', 'LER-ART'],
@@ -64,8 +67,8 @@ category = {'MRI':
             'Industrial Shielding':
             [['AC/ELF', 'IND-ELF'],
              ['High-Spec RF Shielding', 'IND-656'],
-             ['Partial Discharge', 'IND-PDI'],
              ['Anechoic Chamber', 'IND-ANC'],
+             ['Partial Discharge', 'IND-PDI'],
              ['PIM', 'IND-PIM'],
              ['HEMP', 'IND-HMP'],
              ['Synchrotron', 'IND-SYC'],
@@ -75,7 +78,7 @@ category = {'MRI':
             'Security Shielding':
             [['SCIF', 'SEC-SCI'],
              ['High-Spec RF Shielding', 'SEC-656'],
-             ['Other', 'SEC=OTH']],
+             ['Other', 'SEC-OTH']],
             'Engineering':
             [['RF Shield Design', 'SVE-RFD'],
              ['Magnetic Shield Design', 'SVE-MAG'],
@@ -97,7 +100,7 @@ category = {'MRI':
              ['Elephant Doors', 'GPS-ELP'],
              ['Hangar Doors', 'GPS-HAG'],
              ['Large Radiation Door', 'GPS-RAD'],
-             ['Large RF Door', 'GPS-RFD'],
+             ['RF Door', 'GPS-RFD'],
              ['Security Door', 'GPS-SEC'],
              ['Other', 'GPS-OTH']],
             'Other':

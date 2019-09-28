@@ -12,8 +12,8 @@ from openpyxl import*
 import time
 import os
 
-project_dir = r'C:\Users\Bryan\Google Drive\Programming\Python\folder_wizard\Global'
-opportunity_dir = r"C:\Users\Bryan\Google Drive\Programming\Python\folder_wizard\RFQ's"
+project_dir = r'T:\Global'
+opportunity_dir = r"T:\RFQ's"
 
 
 def main():

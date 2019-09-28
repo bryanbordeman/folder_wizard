@@ -2,8 +2,8 @@
 Title:  folder_wizard.py
 Author:  Bryan Bordeman
 Start Date:  062219
-Updated:  071019
-Version:  v2.0
+Updated:  092819
+Version:  v2.1
 
 ;=========================================='''
 
@@ -20,23 +20,23 @@ from project_attribute_list import*
 current_year = time.strftime("%Y")
 
 # below path is for testing at home
-project_dir = r'C:\Users\Bryan\Google Drive\Programming\Python\folder_wizard\Global'
-opportunity_dir = r"C:\Users\Bryan\Google Drive\Programming\Python\folder_wizard\RFQ's"
+# project_dir = r'C:\Users\Bryan\Google Drive\Programming\Python\folder_wizard\Global'
+# opportunity_dir = r"C:\Users\Bryan\Google Drive\Programming\Python\folder_wizard\RFQ's"
 
 # below path is live on office server
-# project_dir = r'T:\Global'
-# opportunity_dir = r"T:\RFQ's"
+project_dir = r'T:\Global'
+opportunity_dir = r"T:\RFQ's"
 
 
 def main():
-#     pass
+    pass
 # below is for testing only
-    quote_data = 'opportunity.pkl'
-    quote_obj = {}  # if quote_data does not exist
-    if os.path.exists(quote_data):
-        with open(quote_data, 'rb') as rfp:
-            quote_obj = pickle.load(rfp)
-    print(quote_obj)
+    # quote_data = 'opportunity.pkl'
+    # quote_obj = {}  # if quote_data does not exist
+    # if os.path.exists(quote_data):
+    #     with open(quote_data, 'rb') as rfp:
+    #         quote_obj = pickle.load(rfp)
+    # print(quote_obj)
 
 
 class Opportunity(object):
@@ -201,8 +201,8 @@ class Project(object):
         self.createFolder(f'{project_dir}/{current_year}/{project}/RFIs')
         self.createFolder(f'{project_dir}/{current_year}/{project}/Purchasing')
         self.createFolder(f'{project_dir}/{current_year}/{project}/Material_Specs')
-        self.createFolder(f'{project_dir}/{current_year}/{project}/contracts')
         self.createFolder(f'{project_dir}/{current_year}/{project}/quotes')
+        self.createFolder(f'{project_dir}/{current_year}/{project}/contracts')
         self.createFolder(f'{project_dir}/{current_year}/{project}/contracts/change_orders')
         self.createFolder(f'{project_dir}/{current_year}/{project}/contracts/closeout_documents')
         self.createFolder(f'{project_dir}/{current_year}/{project}/contracts/AIA_docs_for_pay_apps')

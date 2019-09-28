@@ -2,8 +2,8 @@
 Title:  folder_wizard_GUI.py
 Author:  Bryan Bordeman
 Start Date:  062219
-Updated:  091519
-Version:  v2.0
+Updated:  092819
+Version:  v2.1
 
 ;=========================================='''
 
@@ -20,7 +20,7 @@ import time
 from folder_wizard import*
 from tkinter import filedialog
 
-version = 'v2.0'
+version = 'v2.1'
 opportunity = ''
 project =''
 
@@ -565,8 +565,8 @@ class WizardProject:
         self.opportunity = (str(dir.get()).split('/')[-1])[:7]  # take end of directory
 
         # Unpack pickle data -----------------------------------------
-        # quote_data = r'T:\xxfolder_wizard\opportunity.pkl'
-        quote_data = 'opportunity.pkl'
+        quote_data = r'T:\xxfolder_wizard\opportunity.pkl'
+        # quote_data = 'opportunity.pkl'
         if os.path.exists(quote_data):
             with open(quote_data, 'rb') as rfp:
                 quote_obj = pickle.load(rfp)
@@ -591,7 +591,7 @@ class WizardProject:
                 # index 6 = bid_due]
 
                 if list(quote_obj.keys()).count(self.opportunity) > 0:
-                    self.project_name_var.set(quote_obj[self.opportunity][0])
+                    self.project_name_var.set(quote_obj[self.opportunity][0][:27])
                     self.category_var.set(quote_obj[self.opportunity][1])
                     self.type_var.set(quote_obj[self.opportunity][2])
                     self.project_zip_var.set(quote_obj[self.opportunity][4])
