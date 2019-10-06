@@ -13,6 +13,7 @@ import time
 from get_next_num import get_next_quote_num
 from get_next_num import get_next_project_num
 from openpyxl import*
+from openpyxl.styles import PatternFill, Font, Color
 from zip_2_state import find_state
 from project_attribute_list import*
 
@@ -20,13 +21,12 @@ from project_attribute_list import*
 current_year = time.strftime("%Y")
 
 # below path is for testing at home
-# project_dir = r'C:\Users\Bryan\Google Drive\Programming\Python\folder_wizard\Global'
-# opportunity_dir = r"C:\Users\Bryan\Google Drive\Programming\Python\folder_wizard\RFQ's"
+project_dir = r'C:\Users\Bryan\Google Drive\Programming\Python\folder_wizard\Global'
+opportunity_dir = r"C:\Users\Bryan\Google Drive\Programming\Python\folder_wizard\RFQ's"
 
 # below path is live on office server
-project_dir = r'T:\Global'
-opportunity_dir = r"T:\RFQ's"
-
+# project_dir = r'T:\Global'
+# opportunity_dir = r"T:\RFQ's"
 
 def main():
     pass
@@ -127,6 +127,12 @@ class Opportunity(object):
         ws[f'E{current_row}'] = find_state(int(self.project_zip))
         ws[f'F{current_row}'] = self.bid_due
 
+        #NOTE below is code to fill cell with green background
+
+        # for col in ['A','B','C','D','E','F','G','H']:
+        #     ws[f'{col}{current_row}'].fill = PatternFill(
+        #         start_color="92d050", end_color="92d050", fill_type="solid")
+
         book.save(completeName)
         book.close()
 
@@ -221,6 +227,7 @@ class Project(object):
 
     def pickle_project(self):
         '''Save data in dictionary so it easy to retrieve later.'''
+
         project_data = 'project.pkl'
         project_obj = {}  # if quote_data does not exist
         if os.path.exists(project_data):

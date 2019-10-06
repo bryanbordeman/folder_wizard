@@ -20,7 +20,6 @@ opportunity_dir = r"C:\Users\Bryan\Google Drive\Programming\Python\folder_wizard
 # project_dir = r'T:\Global'
 # opportunity_dir = r"T:\RFQ's"
 
-
 def main():
     print(get_next_quote_num())
     print(get_next_project_num())
