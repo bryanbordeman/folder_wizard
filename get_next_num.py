@@ -2,7 +2,7 @@
 Title:  get_next_num.py
 Author:  Bryan Bordeman
 Start Date:  062219
-Updated:  071019
+Updated:  100619
 Version:  support script
 
 ;=========================================='''
@@ -12,8 +12,13 @@ from openpyxl import*
 import time
 import os
 
-project_dir = r'T:\Global'
-opportunity_dir = r"T:\RFQ's"
+# below path is for testing at home
+project_dir = r'C:\Users\Bryan\Google Drive\Programming\Python\folder_wizard\Global'
+opportunity_dir = r"C:\Users\Bryan\Google Drive\Programming\Python\folder_wizard\RFQ's"
+
+# below path is live on office server
+# project_dir = r'T:\Global'
+# opportunity_dir = r"T:\RFQ's"
 
 
 def main():
@@ -22,7 +27,7 @@ def main():
 
 
 def get_next_quote_num():
-    current_quote = ''
+    current_quote = int()
     try:
         log = "Master Quote Log"
 
@@ -30,15 +35,28 @@ def get_next_quote_num():
 
         book = load_workbook(completeName)
         ws = book.worksheets[0]
-        for cell in ws["A"]:
-            if cell.value is None:
-                current_quote = int((ws[f"A{cell.row - 1}"].value)[4:])
-                current_quote_year = (ws[f"A{cell.row - 1}"].value)[1:3]
-                break
-        else:
-            cell.row + 1
 
         year = time.strftime("%Y")[2:]
+
+        # below is how next next number is determined
+
+        for cell in ws["A"]:
+            if cell.value is not None and cell.value != "Quote" and cell.value[1:3] == year:
+                    if int((cell.value)[4:]) > current_quote:
+                        current_quote = int((cell.value)[4:])
+                        current_quote_year = str((cell.value)[1:3])
+
+        #--------------------------------------------------------------------
+        #NOTE OLD CODE NOT USED (was taking number based on last empty cell)
+        # for cell in ws["A"]:
+        #     if cell.value is None:
+        #         current_quote = int((ws[f"A{cell.row - 1}"].value)[4:])
+        #         current_quote_year = (ws[f"A{cell.row - 1}"].value)[1:3]
+        #         break
+        # else:
+        #     cell.row + 1
+
+        #--------------------------------------------------------------------
 
         if current_quote_year == year:
             next_quote = str(current_quote + 1)
