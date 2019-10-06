@@ -2,8 +2,8 @@
 Title:  folder_wizard.py
 Author:  Bryan Bordeman
 Start Date:  062219
-Updated:  092819
-Version:  v2.1
+Updated:  100619
+Version:  v2.2
 
 ;=========================================='''
 

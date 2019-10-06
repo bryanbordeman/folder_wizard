@@ -2,8 +2,8 @@
 Title:  folder_wizard_GUI.py
 Author:  Bryan Bordeman
 Start Date:  062219
-Updated:  092819
-Version:  v2.1
+Updated:  100619
+Version:  v2.2
 
 ;=========================================='''
 
@@ -20,7 +20,7 @@ import time
 from folder_wizard import*
 from tkinter import filedialog
 
-version = 'v2.1'
+version = 'v2.2'
 opportunity = ''
 project =''
 
@@ -812,3 +812,4 @@ if __name__ == "__main__":
 # need to limit characters on zip entry to max 5 *** completed 09/15/19 ***
 # Need to make previsions for door service number on projects.
 # need to add pack_forget for customer_button
+# special char not allowed when file is made
