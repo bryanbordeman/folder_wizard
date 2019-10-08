@@ -3,7 +3,7 @@ Title:  folder_wizard_GUI.py
 Author:  Bryan Bordeman
 Start Date:  062219
 Updated:  100619
-Version:  v2.2
+Version:  v2.21
 
 ;=========================================='''
 
@@ -20,7 +20,7 @@ import time
 from folder_wizard import*
 from tkinter import filedialog
 
-version = 'v2.2'
+version = 'v2.21'
 opportunity = ''
 project =''
 
@@ -498,9 +498,11 @@ class WizardProject:
         self.control_frame.pack(fill=BOTH, side=BOTTOM, anchor=W, padx=10, pady=10)
 
         # project price
+        vcmdp = self.control_frame.register(self.validate_price)
         self.price_label = Label(self.control_frame, text="Sell Price (USD)    ").pack(side=LEFT)
         self.price_var = StringVar()
-        self.price_entry = Entry(self.control_frame, width=12, textvariable=self.price_var, validate="key", validatecommand=(vcmd, '%P')).pack(side=LEFT)
+        self.price_entry = Entry(self.control_frame, width=12, textvariable=self.price_var, validate="key", validatecommand=(vcmdp, '%P')).pack(side=LEFT)
+       
 
         # Submit takes inputs and commits them to the program
         self.create = Button(self.control_frame, width=9, text="   Create   ", command=self.create)
@@ -539,6 +541,20 @@ class WizardProject:
         if len(new_text) > 5:  # limit char. to 5 max
             return False
 
+        try:
+            self.entered_number = float(new_text)
+            return True
+        except ValueError:
+            return False
+
+       # --------------------------------------------------------------
+
+    def validate_price(self, new_text):
+        '''validate characters are integers used for zip entry'''
+        if not new_text:  # the field is being cleared
+            self.entered_number = 0
+            return True
+        
         try:
             self.entered_number = float(new_text)
             return True
@@ -813,3 +829,4 @@ if __name__ == "__main__":
 # Need to make previsions for door service number on projects.
 # need to add pack_forget for customer_button
 # special char not allowed when file is made
+# updated price so unlimited on characters count *** completed 10/08/19 ***
