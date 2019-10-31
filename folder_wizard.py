@@ -2,8 +2,8 @@
 Title:  folder_wizard.py
 Author:  Bryan Bordeman
 Start Date:  062219
-Updated:  100619
-Version:  v2.2
+Updated:  103119
+Version:  v2.21
 
 ;=========================================='''
 
@@ -21,12 +21,12 @@ from project_attribute_list import*
 current_year = time.strftime("%Y")
 
 # below path is for testing at home
-project_dir = r'C:\Users\Bryan\Google Drive\Programming\Python\folder_wizard\Global'
-opportunity_dir = r"C:\Users\Bryan\Google Drive\Programming\Python\folder_wizard\RFQ's"
+# project_dir = r'C:\Users\Bryan\Google Drive\Programming\Python\folder_wizard\Global'
+# opportunity_dir = r"C:\Users\Bryan\Google Drive\Programming\Python\folder_wizard\RFQ's"
 
 # below path is live on office server
-# project_dir = r'T:\Global'
-# opportunity_dir = r"T:\RFQ's"
+project_dir = r'T:\Global'
+opportunity_dir = r"T:\RFQ's"
 
 def main():
     pass
@@ -203,6 +203,7 @@ class Project(object):
         self.createFolder(f'{project_dir}/{current_year}/{project}/travel')
         self.createFolder(f'{project_dir}/{current_year}/{project}/tx')
         self.createFolder(f'{project_dir}/{current_year}/{project}/billing')
+        self.createFolder(f'{project_dir}/{current_year}/{project}/billing/QB_Invoices')
         self.createFolder(f'{project_dir}/{current_year}/{project}/production')
         self.createFolder(f'{project_dir}/{current_year}/{project}/RFIs')
         self.createFolder(f'{project_dir}/{current_year}/{project}/Purchasing')
@@ -214,7 +215,6 @@ class Project(object):
         self.createFolder(f'{project_dir}/{current_year}/{project}/contracts/AIA_docs_for_pay_apps')
         self.createFolder(f'{project_dir}/{current_year}/{project}/contracts/backup_and_old_files')
         self.createFolder(f'{project_dir}/{current_year}/{project}/contracts/Exhibits')
-        self.createFolder(f'{project_dir}/{current_year}/{project}/contracts/QB_Invoices')
         self.createFolder(f'{project_dir}/{current_year}/{project}/contracts/TX_Ex')
         self.createFolder(f'{project_dir}/{current_year}/{project}/drawings')
         self.createFolder(f'{project_dir}/{current_year}/{project}/drawings/drawings_sent')
